@@ -3583,9 +3583,8 @@ edit proposed by the server."
   "Rename the current symbol to NEWNAME."
   (interactive
    (list (read-from-minibuffer
-          (format "Rename `%s' to: " (or (thing-at-point 'symbol t)
-                                         "unknown symbol"))
-          nil nil nil nil
+          "Rename to: "
+          (thing-at-point 'symbol t) nil nil nil
           (symbol-name (symbol-at-point)))))
   (eglot-server-capable-or-lose :renameProvider)
   (eglot--apply-workspace-edit
